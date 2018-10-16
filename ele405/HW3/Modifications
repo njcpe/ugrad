@@ -1,0 +1,52 @@
+constant LDIXI : std_logic_vector(5 downto 0) := "000001";
+constant STIXI : std_logic_vector(5 downto 0) := "000010";
+constant LDIXD : std_logic_vector(5 downto 0) := "001110";
+constant STIXD : std_logic_vector(5 downto 0) := "001111";
+
+mem_rd <= '1' when ((Opcode2=LDM or Opcode2=LDR or Opcode2=LDIX or Opcode2=LDIXD or Opcode2=LDIXI) and stage2=S2) else ...
+
+mem_wr <= '1' when ((Opcode3=STM or Opcode3=STR or Opcode3=STIX or Opcode3=STIXD or Opcode3=STIXI) and stage3=S1) else ...
+
+stall <= true when(Opcode2=LDM or Opcode2=LDR or Opcode2=STM or Opcode2=STR
+							or Opcode2=LDIX or Opcode2=STIX
+							or Opcode2=LDIXD or Opcode2=STIXD
+							or Opcode2=LDIXI or Opcode2=STIXI) else ...
+
+case stage2 is
+	when S1 =>
+		elsif (Opcode2=LDIX or Opcode2=LDIXI or Opcode2=LDIXD) then
+			MAR <= std_logic_vector(unsigned(register_file(to_integer(unsigned(RY2)))) + unsigned(M2));	
+		elsif (Opcode2=STIX or Opcode2=STIXI or Opcode2=STIXD) then
+			MAR <= std_logic_vector(unsigned(register_file(to_integer(unsigned(RX2)))) + unsigned(M2));	
+			MDR_out <= register_file(to_integer(unsigned(RY2)));
+		.
+		.
+		.
+	when S2 =>
+		elsif (Opcode2=LDM or Opcode2=LDR or Opcode2=LDIX or Opcode2=LDIXI or Opcode2=LDIXD) then
+			MDR_in <= MEM_in;
+		elsif (Opcode2=STIXI) then
+			register_file(to_integer(unsigned(RX2))) <= std_logic_vector(register_file(to_integer(unsigned(RX2))) + 1);
+		elsif (Opcode2=STIXD) then
+			register_file(to_integer(unsigned(RX2))) <= std_logic_vector(register_file(to_integer(unsigned(RX2))) - 1);
+		.
+		.
+		.
+case stage3 is
+	when S1 =>
+		if (Opcode3=LDM or Opcode3=LDR or Opcode3=LDIX or Opcode3=LDIXI or Opcode3=LDIXD) then
+			register_file(to_integer(unsigned(RX3))) <= MDR_in;
+		elsif (Opcode2=LDIXI) then
+			register_file(to_integer(unsigned(RY3))) <= std_logic_vector(register_file(to_integer(unsigned(RY3))) + 1);
+		elsif (Opcode2=LDIXD) then
+			register_file(to_integer(unsigned(RY3))) <= std_logic_vector(register_file(to_integer(unsigned(RY3))) - 1);
+		.
+		.
+		.
+
+
+
+STIXI:	register_file(to_integer(unsigned(RX#))) <= std_logic_vector(register_file(to_integer(unsigned(RX#))) + 1);
+STIXD:	register_file(to_integer(unsigned(RX#))) <= std_logic_vector(register_file(to_integer(unsigned(RX#))) - 1);
+LDIXI:	register_file(to_integer(unsigned(RY#))) <= std_logic_vector(register_file(to_integer(unsigned(RY#))) + 1);
+LDIXD:	register_file(to_integer(unsigned(RY#))) <= std_logic_vector(register_file(to_integer(unsigned(RY#))) - 1);

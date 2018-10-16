@@ -1,0 +1,22 @@
+library IEEE;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity ADD_SUB is
+	port (
+			SW:	in std_logic_vector(8 downto 0);
+			HEX0:	out std_logic_vector(6 downto 0)
+			);
+end entity;
+
+architecture lab02 of ADD_SUB is 
+	signal S : std_logic_vector(3 downto 0);
+begin
+
+	display0: entity work.sevenseg port map (S, HEX0);
+	
+	S <=	std_logic_vector(signed(SW(7 downto 4)) + signed(SW(3 downto 0))) when SW(8) ='0' else
+			
+			std_logic_vector(signed(SW(7 downto 4)) - signed(SW(3 downto 0)));
+				
+end architecture lab02;

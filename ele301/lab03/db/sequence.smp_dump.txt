@@ -1,0 +1,27 @@
+
+State Machine - |fsm|state
+Name state.timer state.blink4a state.blink3a state.blink2a state.blink1a state.blink4 state.blink3 state.blink2 state.blink1 state.wait8 state.wait7 state.wait6 state.wait5 state.wait4 state.wait3 state.wait2 state.wait1 
+state.wait1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.wait2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.wait3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.wait4 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.wait5 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.wait6 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.wait7 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.wait8 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.blink1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.blink2 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.blink3 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.blink4 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.blink1a 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.blink2a 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.blink3a 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.blink4a 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.timer 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |fsm|tstate
+Name tstate.done tstate.check tstate.count tstate.standby 
+tstate.standby 0 0 0 0 
+tstate.count 0 0 1 1 
+tstate.check 0 1 0 1 
+tstate.done 1 0 0 1 

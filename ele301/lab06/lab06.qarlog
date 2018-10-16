@@ -1,0 +1,23 @@
+Quartus Prime Archive log --	/u/ugrads/njohnson/Documents/ELE 301/lab06/lab06.qarlog
+
+Archive:	/u/ugrads/njohnson/Documents/ELE 301/lab06/lab06.qar
+Date:		Mon Mar 27 14:04:04 2017
+Quartus Prime		16.0.0 Build 211 04/27/2016 SJ Standard Edition
+
+	=========== Files Selected: ===========
+/net/usr/quartus16.0/quartus/linux64/assignment_defaults.qdf
+/u/ugrads/njohnson/Documents/ELE 301/lab06/lab06.qpf
+/u/ugrads/njohnson/Documents/ELE 301/lab06/lab06.qsf
+/u/ugrads/njohnson/Documents/ELE 301/lab06/output_files/lab06.flow.rpt
+/u/ugrads/njohnson/Documents/ELE 301/lab06/output_files/lab06.map.rpt
+/u/ugrads/njohnson/Documents/ELE 301/lab06/output_files/lab06.map.summary
+	======= Total: 6 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Mon Mar 27 14:35:06 2017
+Source archive file:	/u/ugrads/njohnson/Documents/ELE 301/lab06/lab06.qar
+Archive was extracted into	/u/ugrads/njohnson/Documents/ELE 301/lab07/
+		 - successfully.

@@ -1,0 +1,32 @@
+Quartus Prime Archive log --	/u/ugrads/njohnson/Documents/ELE 301/Archived Labs/final_proj_restore_point_1.qarlog
+
+Archive:	/u/ugrads/njohnson/Documents/ELE 301/Archived Labs/final_proj_restore_point_1.qar
+Date:		Mon Apr 17 15:07:19 2017
+Quartus Prime		16.0.0 Build 211 04/27/2016 SJ Standard Edition
+
+	=========== Files Selected: ===========
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/Racquetball.vhd
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/Sprite.mif
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/VGAPLL.cmp
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/VGAPLL.qip
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/VGAPLL.vhd
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/VGAPLL/VGAPLL_0002.qip
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/VGAPLL/VGAPLL_0002.v
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/VGA_Animation.vhd
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/assignment_defaults.qdf
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/i2c_touch_config.v
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/output_files/Chain1.cdf
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/sevenseg.vhd
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/vga_basic.qpf
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/vga_basic.qsf
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/vga_basic_assignment_defaults.qdf
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/vga_sprite.vhd
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/vram.qip
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/vram.vhd
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/vrom.cmp
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/vrom.qip
+/u/ugrads/njohnson/Documents/ELE 301/ELE_301_Final_take2/vrom.vhd
+	======= Total: 21 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

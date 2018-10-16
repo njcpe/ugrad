@@ -1,0 +1,17 @@
+
+State Machine - |Sprite_test|SV
+Name SV.update2 SV.update1 SV.update0 SV.anime2 SV.anime1 SV.anime0 SV.move1 SV.move0 SV.home1 SV.home0 SV.clean3 SV.clean2 SV.clean1 SV.clean0 
+SV.clean0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+SV.clean1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+SV.clean2 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+SV.clean3 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+SV.home0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+SV.home1 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+SV.move0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+SV.move1 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+SV.anime0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+SV.anime1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+SV.anime2 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+SV.update0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+SV.update1 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+SV.update2 1 0 0 0 0 0 0 0 0 0 0 0 0 1 

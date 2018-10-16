@@ -1,0 +1,90 @@
+Restore Archived Project report for vga_basic
+Mon Mar 27 14:39:10 2017
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Mon Mar 27 14:39:10 2017 ;
+; Revision Name                   ; vga_basic                             ;
+; Top-level Entity Name           ; VGA_Animation                         ;
+; Family                          ; Cyclone V                             ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored '/u/ugrads/njohnson/Documents/MTL_Touch_Animation/vga_basic.qar' into the '/u/ugrads/njohnson/Documents/ELE 301/lab07/' directory
+Info: Generated report 'vga_basic.restore.rpt'
+Info (23030): Evaluation of Tcl script /net/usr/quartus16.0/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 1073 megabytes
+    Info: Processing ended: Mon Mar 27 14:39:10 2017
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+
++-----------------------------------+
+; Files Restored                    ;
++-----------------------------------+
+; File Name                         ;
++-----------------------------------+
+; qar_info.json                     ;
+; VGAPLL.cmp                        ;
+; VGAPLL.qip                        ;
+; VGAPLL.vhd                        ;
+; VGAPLL/VGAPLL_0002.qip            ;
+; VGAPLL/VGAPLL_0002.v              ;
+; VGA_Animation.vhd                 ;
+; assignment_defaults.qdf           ;
+; i2c_touch_config.v                ;
+; sevenseg.vhd                      ;
+; vga_basic.qpf                     ;
+; vga_basic.qsf                     ;
+; vga_basic_assignment_defaults.qdf ;
+; vga_mem.vhd                       ;
+; vram.qip                          ;
+; vram.vhd                          ;
++-----------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

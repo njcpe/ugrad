@@ -1,0 +1,101 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'clock_50'
+Slack : -3.679
+TNS   : -5.233
+
+Type  : Slow 1100mV 85C Model Setup 'debounce:filter|output'
+Slack : -1.842
+TNS   : -14.038
+
+Type  : Slow 1100mV 85C Model Hold 'clock_50'
+Slack : 0.421
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'debounce:filter|output'
+Slack : 0.660
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clock_50'
+Slack : -0.524
+TNS   : -6.091
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'debounce:filter|output'
+Slack : -0.394
+TNS   : -4.632
+
+Type  : Slow 1100mV 0C Model Setup 'clock_50'
+Slack : -3.612
+TNS   : -5.168
+
+Type  : Slow 1100mV 0C Model Setup 'debounce:filter|output'
+Slack : -1.916
+TNS   : -14.472
+
+Type  : Slow 1100mV 0C Model Hold 'clock_50'
+Slack : 0.416
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'debounce:filter|output'
+Slack : 0.655
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clock_50'
+Slack : -0.495
+TNS   : -6.499
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'debounce:filter|output'
+Slack : -0.394
+TNS   : -4.631
+
+Type  : Fast 1100mV 85C Model Setup 'clock_50'
+Slack : -2.977
+TNS   : -2.977
+
+Type  : Fast 1100mV 85C Model Setup 'debounce:filter|output'
+Slack : -0.672
+TNS   : -5.083
+
+Type  : Fast 1100mV 85C Model Hold 'clock_50'
+Slack : 0.260
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'debounce:filter|output'
+Slack : 0.344
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clock_50'
+Slack : -0.495
+TNS   : -1.505
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'debounce:filter|output'
+Slack : 0.143
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clock_50'
+Slack : -2.485
+TNS   : -2.485
+
+Type  : Fast 1100mV 0C Model Setup 'debounce:filter|output'
+Slack : -0.616
+TNS   : -4.620
+
+Type  : Fast 1100mV 0C Model Hold 'clock_50'
+Slack : 0.247
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'debounce:filter|output'
+Slack : 0.313
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clock_50'
+Slack : -0.453
+TNS   : -1.421
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'debounce:filter|output'
+Slack : 0.145
+TNS   : 0.000
+
+------------------------------------------------------------

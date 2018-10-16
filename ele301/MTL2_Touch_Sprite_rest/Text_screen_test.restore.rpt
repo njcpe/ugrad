@@ -1,0 +1,93 @@
+Restore Archived Project report for Text_screen_test
+Mon Apr 10 14:03:46 2017
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Mon Apr 10 14:03:46 2017 ;
+; Revision Name                   ; Text_screen_test                      ;
+; Top-level Entity Name           ; Sprite_test                           ;
+; Family                          ; Cyclone V                             ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored '/u/ugrads/njohnson/Downloads/MTL2_Touch_Sprite.qar' into the '/u/ugrads/njohnson/Documents/ELE 301/MTL2_Touch_Sprite_rest/' directory
+Info: Generated report 'Text_screen_test.restore.rpt'
+Info (23030): Evaluation of Tcl script /net/usr/quartus16.0/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 1073 megabytes
+    Info: Processing ended: Mon Apr 10 14:03:46 2017
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+
++------------------------------------------+
+; Files Restored                           ;
++------------------------------------------+
+; File Name                                ;
++------------------------------------------+
+; qar_info.json                            ;
+; Sprite_RGB.mif                           ;
+; Sprite_test.vhd                          ;
+; Text_screen_test.qpf                     ;
+; Text_screen_test.qsf                     ;
+; Text_screen_test_assignment_defaults.qdf ;
+; VGAPLL.cmp                               ;
+; VGAPLL.qip                               ;
+; VGAPLL.vhd                               ;
+; VGAPLL/VGAPLL_0002.qip                   ;
+; VGAPLL/VGAPLL_0002.v                     ;
+; assignment_defaults.qdf                  ;
+; i2c_touch_config.v                       ;
+; sevenseg.vhd                             ;
+; vga_sprite2.vhd                          ;
+; vrams.qip                                ;
+; vrams.vhd                                ;
+; vrom_rgb.qip                             ;
+; vrom_rgb.vhd                             ;
++------------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

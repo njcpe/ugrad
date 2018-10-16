@@ -1,0 +1,42 @@
+// Symbol table
+// Scope level 0:
+//	Symbol Name       Page Address
+//	----------------  ------------
+//	ReadString        3000
+//	BuffPtr           3005
+//	Prompt            300D
+//	BuffLen           301E
+//	ReadCore          301F
+//	Main              3022
+//	Loop              3029
+//	Terminator        302F
+//	Minus             3030
+//	ProcessInput      3031
+//	ProcessInputCore  3033
+//	Next              3040
+//	Then              3045
+//	Negative          3046
+//	Decimal           3047
+//	ParseDecimal      3048
+//	DecimalLoop       304B
+//	DoneParsingDecimal  3059
+//	NotNegativeDecimal  305D
+//	NegZero           305E
+//	NegNine           305F
+//	ParseHex          3060
+//	HexLoop           3063
+//	DECII             306C
+//	HEXLETTER         3070
+//	SURE              3071
+//	DoneHex           3074
+//	NNHex             3078
+//	NEGA              3079
+//	ParseError        307A
+//	ErrorStr          307D
+//	PrintResult       3095
+//	LOOP2             309C
+//	Neg               30A3
+//	NEXT2             30A5
+//	ARRAY             30AB
+//	Zero              30B3
+

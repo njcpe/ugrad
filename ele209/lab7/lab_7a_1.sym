@@ -1,0 +1,19 @@
+// Symbol table
+// Scope level 0:
+//	Symbol Name       Page Address
+//	----------------  ------------
+//	ReadString        3000
+//	Prompt            3005
+//	InBuffLen         3016
+//	InBuffPtr         3017
+//	NegEnter          3021
+//	CapsCheck         3022
+//	Capitalize        3023
+//	ReadCore          3024
+//	ReadCoreBody      3025
+//	CapsCorrect       3032
+//	ProcessInput      303A
+//	OutputResult      303C
+//	StartOfLineStr    3043
+//	EndOfLineStr      304D
+

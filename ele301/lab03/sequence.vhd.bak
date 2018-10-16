@@ -1,0 +1,126 @@
+library IEEE;
+use ieee.std_logic_1164.all;
+
+entity sequence_detector is
+	port(
+			clock_50	: in std_logic;
+			KEY		: in std_logic_vector(3 downto 0);
+			LEDR		: buffer std_logic_vector(7 downto 0)
+		);
+end entity;
+
+architecture example of sequence_detector is
+	alias clock : std_logic is clock_50;
+	alias reset : std_logic is KEY(0);
+	alias LED : std_logic is LEDR(0);
+	--Due to the name conflict the name "KEY" used in the book
+	--was changed to "PB"
+	signal PB : std_logic;
+
+	type p2 is (wait_for_press, wait_for_release, release);
+	type p3 is (wait_for_press, press, wait_for_release);
+	type p4 is (wait1, wait2, wait3, press, wait4);
+	signal state: p2; --chnage signal type for different problem
+	
+begin
+
+   key_debounce : entity work.debounce generic map(
+      CYCLES => 8
+   )
+   port map(
+      pin => key(3),
+      output => PB,
+      clock => clock
+   );
+
+--------------------------------------------------------
+--Problem 1
+--	LED <= not PB;
+
+--------------------------------------------------------
+--Problem 2	
+	problem2: Process (clock, reset)
+	begin
+		if(reset='0') then
+			LED <= '0';
+			state <= wait_for_press;
+		elsif(clock'event and clock='1') then
+			case state is
+				when wait_for_press =>
+					if(PB='0') then
+						state <= wait_for_release;
+					end if;
+				when wait_for_release =>
+					if(PB='1') then
+						state <= release;
+					end if;
+				when release =>
+					LED <= not LED;
+					state <= wait_for_press;
+				when others =>
+					state <= wait_for_press;
+			end case;
+		end if;
+	end process;	
+
+--------------------------------------------------------
+--Problem 3	
+--	problem3: Process (clock, reset)
+--	begin
+--		if(reset='0') then
+--			LED <= '0';
+--			state <= wait_for_press;
+--		elsif(clock'event and clock='1') then
+--			case state is
+--				when wait_for_press =>
+--					if(PB='0') then
+--						state <= press;
+--					end if;
+--				when press =>
+--					LED <= not LED;
+--					state <= wait_for_release;
+--				when wait_for_release =>
+--					if(PB='1') then
+--						state <= wait_for_press;
+--					end if;
+--				when others =>
+--					state <= wait_for_press;
+--			end case;
+--		end if;
+--	end process;	
+
+--------------------------------------------------------
+--Problem 4	
+--	problem4: Process (clock, reset)
+--	begin
+--		if(reset='0') then
+--			LED <= '0';
+--			state <= wait1;
+--		elsif(clock'event and clock='1') then
+--			case state is
+--				when wait1 =>
+--					if(PB='0') then
+--						state <= wait2;
+--					end if;
+--				when wait2 =>
+--					if(PB='1') then
+--						state <= wait3;
+--					end if;
+--				when wait3 =>
+--					if(PB='0') then
+--						state <= press;
+--					end if;
+--				when press =>
+--					LED <= not LED;
+--					state <= wait4;
+--				when wait4 =>
+--					if(PB='1') then
+--						state <= wait1;
+--					end if;
+--				when others =>
+--					state <= wait1;
+--			end case;
+--		end if;
+--	end process;	
+	
+end architecture example;

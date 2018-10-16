@@ -1,0 +1,65 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity Controller is
+	port( reset: in std_logic;
+			clock: in std_logic;
+			input: in std_logic;
+			bgo: 	out std_logic;
+			brst: out std_logic
+			);
+end Controller;
+
+architecture FSM_example of Controller is 
+	-- The state names for the Controller FSM
+	type FSM_state_type is (wait1, wait2, act1, wait3, act2, wait4, act3);
+	signal FSM : FSM_state_type;	
+begin
+	---------------------------------------------------------
+	-- This process creates a finite state machine (FSM)
+	-- with state variable FSM defined above. It examines the
+	-- filtered KEY3 (INPUT) and control the BCD_counter
+	-- so it behaves like a stopwatch
+	---------------------------------------------------------
+	Stopwatch_behaviour: process(clock, reset)
+	begin
+		if(reset = '0') then	--Master reset		
+			FSM <= wait1;
+			bgo <= '0';		--stop BCD counter
+			brst <= '1';	--reset BCD counter	
+		elsif(clock'event AND clock = '1') then
+			case FSM is
+				when wait1 =>	
+					if (input = '1') then
+						FSM <= wait2;
+					end if;
+				when wait2 =>	
+					if (input = '0') then
+						FSM <= act1;
+					end if;					
+				when act1 =>	
+					bgo <= '1';	--start BCD counter
+					brst <= '0'; --disable reset BCD counter
+					FSM <= wait3;
+				when wait3 =>	
+					if (input = '1') then
+						FSM <= act2;
+					end if;				
+				when act2 =>	
+					bgo <= '0';	--stop BCD counter
+					brst <= '0'; --disable reset BCD counter
+					FSM <= wait4;					
+				when wait4 =>	
+					if (input = '0') then
+						FSM <= act3;
+					end if;					
+				when act3 =>	
+					bgo <= '0';		--stop BCD counter
+					brst <= '1';	--reset BCD counter
+					FSM <= wait1;					
+				when others =>
+					FSM <= wait1;
+			end case;
+		end if;		
+	end process;
+end architecture FSM_example;

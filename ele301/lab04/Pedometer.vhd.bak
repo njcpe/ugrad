@@ -1,0 +1,14 @@
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+
+entity pedometer is
+	port( 
+			clock_50: in std_logic;
+			key(3 downto 2): in std_logic;
+			HEX0, HEX1, HEX2, HEX3: out std_logic_vector(6 downto 0)
+			LED(1 down to 0): out std_logic
+			);
+end pedometer;
+
+architecture examples of Stopwatch is

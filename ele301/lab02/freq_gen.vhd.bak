@@ -1,0 +1,16 @@
+--Second two-layer Counter example from Figure 3.28
+Counter_UDT: process(clock_50, key(0))
+	variable loopcount : integer range 0 to 1000000;
+begin
+		if(key(0) = '0') then
+			loopcount := 0;
+			count <= "0000";
+		elsif(clock_50'event and clock_50='1') then
+			if(loopcount >= 999999) then
+				loopcount := 0;
+				count <= std_logic_vector(unsigned(count) + unsigned(SW(3 downto 0)));
+			else
+				loopcount := loopcount + to_integer(unsigned(SW(7 downto 4)));
+			end if;
+		end if;
+end process;

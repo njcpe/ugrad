@@ -1,0 +1,31 @@
+// Symbol table
+// Scope level 0:
+//	Symbol Name       Page Address
+//	----------------  ------------
+//	ReadString        3000
+//	Prompt            3005
+//	InBuffLen         3016
+//	InBuffPtr         3017
+//	NegEnter          3021
+//	CapsCheck         3022
+//	Capitalize        3023
+//	ReadCore          3024
+//	ReadCoreBody      3025
+//	CapsCorrect       3032
+//	ProcessInput      303A
+//	NegCheck          303C
+//	HexCheck          303D
+//	DecCheck          303E
+//	ProcessInputCore  303F
+//	NegConv           304C
+//	HexConv           3056
+//	DecConv           3058
+//	ParseHex          305A
+//	ParseDecimal      305D
+//	ParseCommon       305F
+//	NotNeg            3063
+//	MinusStr          3068
+//	HexStr            3072
+//	DecimalStr        307F
+//	EndOfLineStr      3090
+

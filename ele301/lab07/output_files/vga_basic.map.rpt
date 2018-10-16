@@ -1,0 +1,1880 @@
+Analysis & Synthesis report for vga_basic
+Mon Mar 27 17:09:38 2017
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |raquetball|dir
+ 11. State Machine - |raquetball|SV
+ 12. State Machine - |raquetball|TS
+ 13. State Machine - |raquetball|i2c_touch_config:Terasic_Touch_IP|c_state
+ 14. State Machine - |raquetball|i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|c_state
+ 15. Registers Protected by Synthesis
+ 16. Registers Removed During Synthesis
+ 17. Removed Registers Triggering Further Register Optimizations
+ 18. General Register Statistics
+ 19. Inverted Register Statistics
+ 20. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 21. Source assignments for vga_mem:vga_interface|vram:Video_RAM|altsyncram:altsyncram_component|altsyncram_dp14:auto_generated
+ 22. Source assignments for i2c_touch_config:Terasic_Touch_IP
+ 23. Parameter Settings for User Entity Instance: vga_mem:vga_interface|vram:Video_RAM|altsyncram:altsyncram_component
+ 24. Parameter Settings for User Entity Instance: vga_mem:vga_interface|VGAPLL:pll|VGAPLL_0002:vgapll_inst|altera_pll:altera_pll_i
+ 25. Parameter Settings for User Entity Instance: i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller
+ 26. Parameter Settings for User Entity Instance: i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller
+ 27. altsyncram Parameter Settings by Entity Instance
+ 28. Port Connectivity Checks: "sevenseg:dsp3"
+ 29. Port Connectivity Checks: "sevenseg:dsp2"
+ 30. Port Connectivity Checks: "sevenseg:dsp1"
+ 31. Port Connectivity Checks: "sevenseg:dsp0"
+ 32. Port Connectivity Checks: "i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller"
+ 33. Port Connectivity Checks: "i2c_touch_config:Terasic_Touch_IP"
+ 34. Port Connectivity Checks: "vga_mem:vga_interface|vram:Video_RAM"
+ 35. Post-Synthesis Netlist Statistics for Top Partition
+ 36. Elapsed Time Per Partition
+ 37. Analysis & Synthesis Messages
+ 38. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Mar 27 17:09:38 2017           ;
+; Quartus Prime Version           ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
+; Revision Name                   ; vga_basic                                       ;
+; Top-level Entity Name           ; raquetball                                      ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 526                                             ;
+; Total pins                      ; 92                                              ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 24,576                                          ;
+; Total DSP Blocks                ; 0                                               ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 1                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; Raquetball         ; vga_basic          ;
+; Family name                                                                     ; Cyclone V          ; Cyclone IV GX      ;
+; Use smart compilation                                                           ; On                 ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; i2c_touch_config.v               ; yes             ; User Verilog HDL File        ; /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v              ;         ;
+; VGAPLL.vhd                       ; yes             ; User Wizard-Generated File   ; /u/ugrads/njohnson/Documents/ELE 301/lab07/VGAPLL.vhd                      ; work    ;
+; VGAPLL/VGAPLL_0002.v             ; yes             ; User Verilog HDL File        ; /u/ugrads/njohnson/Documents/ELE 301/lab07/VGAPLL/VGAPLL_0002.v            ; work    ;
+; vga_mem.vhd                      ; yes             ; User VHDL File               ; /u/ugrads/njohnson/Documents/ELE 301/lab07/vga_mem.vhd                     ;         ;
+; vram.vhd                         ; yes             ; User Wizard-Generated File   ; /u/ugrads/njohnson/Documents/ELE 301/lab07/vram.vhd                        ;         ;
+; sevenseg.vhd                     ; yes             ; User VHDL File               ; /u/ugrads/njohnson/Documents/ELE 301/lab07/sevenseg.vhd                    ;         ;
+; Raquetball.vhd                   ; yes             ; User VHDL File               ; /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd                  ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; /net/usr/quartus16.0/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; /net/usr/quartus16.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; /net/usr/quartus16.0/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; /net/usr/quartus16.0/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal160.inc                   ; yes             ; Megafunction                 ; /net/usr/quartus16.0/quartus/libraries/megafunctions/aglobal160.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; /net/usr/quartus16.0/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; /net/usr/quartus16.0/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; /net/usr/quartus16.0/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; /net/usr/quartus16.0/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_dp14.tdf           ; yes             ; Auto-Generated Megafunction  ; /u/ugrads/njohnson/Documents/ELE 301/lab07/db/altsyncram_dp14.tdf          ;         ;
+; altera_pll.v                     ; yes             ; Megafunction                 ; /net/usr/quartus16.0/quartus/libraries/megafunctions/altera_pll.v          ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 364            ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 550            ;
+;     -- 7 input functions                    ; 5              ;
+;     -- 6 input functions                    ; 102            ;
+;     -- 5 input functions                    ; 93             ;
+;     -- 4 input functions                    ; 98             ;
+;     -- <=3 input functions                  ; 252            ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 526            ;
+;                                             ;                ;
+; I/O pins                                    ; 92             ;
+; Total MLAB memory bits                      ; 0              ;
+; Total block memory bits                     ; 24576          ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Total PLLs                                  ; 1              ;
+;     -- PLLs                                 ; 1              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 488            ;
+; Total fan-out                               ; 4018           ;
+; Average fan-out                             ; 3.18           ;
++---------------------------------------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                   ;
++-----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; Compilation Hierarchy Node                    ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                   ; Entity Name          ; Library Name ;
++-----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+; |raquetball                                   ; 550 (241)         ; 526 (115)    ; 24576             ; 0          ; 92   ; 0            ; |raquetball                                                                                                           ; raquetball           ; work         ;
+;    |i2c_touch_config:Terasic_Touch_IP|        ; 252 (113)         ; 369 (297)    ; 0                 ; 0          ; 0    ; 0            ; |raquetball|i2c_touch_config:Terasic_Touch_IP                                                                         ; i2c_touch_config     ; work         ;
+;       |i2c_master_byte_ctrl:byte_controller|  ; 139 (40)          ; 72 (25)      ; 0                 ; 0          ; 0    ; 0            ; |raquetball|i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller                                    ; i2c_master_byte_ctrl ; work         ;
+;          |i2c_master_bit_ctrl:bit_controller| ; 99 (99)           ; 47 (47)      ; 0                 ; 0          ; 0    ; 0            ; |raquetball|i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller ; i2c_master_bit_ctrl  ; work         ;
+;    |sevenseg:dsp0|                            ; 2 (2)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |raquetball|sevenseg:dsp0                                                                                             ; sevenseg             ; work         ;
+;    |vga_mem:vga_interface|                    ; 55 (55)           ; 42 (42)      ; 24576             ; 0          ; 0    ; 0            ; |raquetball|vga_mem:vga_interface                                                                                     ; vga_mem              ; work         ;
+;       |VGAPLL:pll|                            ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |raquetball|vga_mem:vga_interface|VGAPLL:pll                                                                          ; VGAPLL               ; work         ;
+;          |VGAPLL_0002:vgapll_inst|            ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |raquetball|vga_mem:vga_interface|VGAPLL:pll|VGAPLL_0002:vgapll_inst                                                  ; VGAPLL_0002          ; work         ;
+;             |altera_pll:altera_pll_i|         ; 0 (0)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |raquetball|vga_mem:vga_interface|VGAPLL:pll|VGAPLL_0002:vgapll_inst|altera_pll:altera_pll_i                          ; altera_pll           ; work         ;
+;       |vram:Video_RAM|                        ; 0 (0)             ; 0 (0)        ; 24576             ; 0          ; 0    ; 0            ; |raquetball|vga_mem:vga_interface|vram:Video_RAM                                                                      ; vram                 ; work         ;
+;          |altsyncram:altsyncram_component|    ; 0 (0)             ; 0 (0)        ; 24576             ; 0          ; 0    ; 0            ; |raquetball|vga_mem:vga_interface|vram:Video_RAM|altsyncram:altsyncram_component                                      ; altsyncram           ; work         ;
+;             |altsyncram_dp14:auto_generated|  ; 0 (0)             ; 0 (0)        ; 24576             ; 0          ; 0    ; 0            ; |raquetball|vga_mem:vga_interface|vram:Video_RAM|altsyncram:altsyncram_component|altsyncram_dp14:auto_generated       ; altsyncram_dp14      ; work         ;
++-----------------------------------------------+-------------------+--------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                  ;
++----------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+------+
+; Name                                                                                                           ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
++----------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+------+
+; vga_mem:vga_interface|vram:Video_RAM|altsyncram:altsyncram_component|altsyncram_dp14:auto_generated|ALTSYNCRAM ; AUTO ; True Dual Port ; 8192         ; 3            ; 8192         ; 3            ; 24576 ; None ;
++----------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                              ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                  ; IP Include File ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------+-----------------+
+; Altera ; altera_pll   ; 16.0    ; N/A          ; N/A          ; |raquetball|vga_mem:vga_interface|VGAPLL:pll     ; VGAPLL.vhd      ;
+; Altera ; RAM: 2-PORT  ; 16.0    ; N/A          ; N/A          ; |raquetball|vga_mem:vga_interface|vram:Video_RAM ; vram.vhd        ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------+
+; State Machine - |raquetball|dir            ;
++--------+--------+--------+--------+--------+
+; Name   ; dir.dl ; dir.ul ; dir.ur ; dir.dr ;
++--------+--------+--------+--------+--------+
+; dir.dr ; 0      ; 0      ; 0      ; 0      ;
+; dir.ur ; 0      ; 0      ; 1      ; 1      ;
+; dir.ul ; 0      ; 1      ; 0      ; 1      ;
+; dir.dl ; 1      ; 0      ; 0      ; 1      ;
++--------+--------+--------+--------+--------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |raquetball|SV                                                                                                                                                                                                                                                                                                                                                                                                               ;
++-------------+-------------+-------------+-------------+-------------+-------------+---------+----------+----------+------------+-----------+-----------+-------------+-------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-----------+-----------+------------+------------+------------+----------+----------+-----------+-----------+-----------+-----------+
+; Name        ; SV.endgame4 ; SV.endgame3 ; SV.endgame2 ; SV.endgame1 ; SV.endgame0 ; SV.end0 ; SV.draw2 ; SV.draw1 ; SV.bupdate ; SV.erase2 ; SV.erase1 ; SV.update11 ; SV.update10 ; SV.update9 ; SV.update8 ; SV.update7 ; SV.update6 ; SV.update5 ; SV.update4 ; SV.update3 ; SV.update2 ; SV.update1 ; SV.pdraw2 ; SV.pdraw1 ; SV.pupdate ; SV.perase2 ; SV.perase1 ; SV.sync2 ; SV.sync1 ; SV.clean3 ; SV.clean2 ; SV.clean1 ; SV.clean0 ;
++-------------+-------------+-------------+-------------+-------------+-------------+---------+----------+----------+------------+-----------+-----------+-------------+-------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-----------+-----------+------------+------------+------------+----------+----------+-----------+-----------+-----------+-----------+
+; SV.clean0   ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 0         ;
+; SV.clean1   ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 1         ; 1         ;
+; SV.clean2   ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 1         ; 0         ; 1         ;
+; SV.clean3   ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 1         ; 0         ; 0         ; 1         ;
+; SV.sync1    ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 1        ; 0         ; 0         ; 0         ; 1         ;
+; SV.sync2    ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 1        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.perase1  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 1          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.perase2  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 1          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.pupdate  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 1          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.pdraw1   ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 1         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.pdraw2   ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.update1  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.update2  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.update3  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.update4  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.update5  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.update6  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.update7  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.update8  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.update9  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 1          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.update10 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 1           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.update11 ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 1           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.erase1   ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 1         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.erase2   ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 1         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.bupdate  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 1          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.draw1    ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 1        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.draw2    ; 0           ; 0           ; 0           ; 0           ; 0           ; 0       ; 1        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.end0     ; 0           ; 0           ; 0           ; 0           ; 0           ; 1       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.endgame0 ; 0           ; 0           ; 0           ; 0           ; 1           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.endgame1 ; 0           ; 0           ; 0           ; 1           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.endgame2 ; 0           ; 0           ; 1           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.endgame3 ; 0           ; 1           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
+; SV.endgame4 ; 1           ; 0           ; 0           ; 0           ; 0           ; 0       ; 0        ; 0        ; 0          ; 0         ; 0         ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0          ; 0         ; 0         ; 0          ; 0          ; 0          ; 0        ; 0        ; 0         ; 0         ; 0         ; 1         ;
++-------------+-------------+-------------+-------------+-------------+-------------+---------+----------+----------+------------+-----------+-----------+-------------+-------------+------------+------------+------------+------------+------------+------------+------------+------------+------------+-----------+-----------+------------+------------+------------+----------+----------+-----------+-----------+-----------+-----------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------+
+; State Machine - |raquetball|TS                                   ;
++-------------------+------------+-------------+-------------------+
+; Name              ; TS.examine ; TS.get_code ; TS.wait_for_ready ;
++-------------------+------------+-------------+-------------------+
+; TS.wait_for_ready ; 0          ; 0           ; 0                 ;
+; TS.get_code       ; 0          ; 1           ; 1                 ;
+; TS.examine        ; 1          ; 0           ; 1                 ;
++-------------------+------------+-------------+-------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |raquetball|i2c_touch_config:Terasic_Touch_IP|c_state                                                                                              ;
++--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+; Name         ; c_state.1001 ; c_state.1000 ; c_state.0111 ; c_state.0110 ; c_state.0101 ; c_state.0100 ; c_state.0011 ; c_state.0010 ; c_state.0001 ; c_state.0000 ;
++--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+; c_state.0000 ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ;
+; c_state.0001 ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 1            ;
+; c_state.0010 ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 1            ;
+; c_state.0011 ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 1            ;
+; c_state.0100 ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 1            ;
+; c_state.0101 ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; c_state.0110 ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; c_state.0111 ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; c_state.1000 ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
+; c_state.1001 ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
++--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |raquetball|i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|c_state                    ;
++------------------+-----------------+-----------------+----------------+------------------+-----------------+------------------+
+; Name             ; c_state.ST_IDLE ; c_state.ST_STOP ; c_state.ST_ACK ; c_state.ST_WRITE ; c_state.ST_READ ; c_state.ST_START ;
++------------------+-----------------+-----------------+----------------+------------------+-----------------+------------------+
+; c_state.ST_IDLE  ; 0               ; 0               ; 0              ; 0                ; 0               ; 0                ;
+; c_state.ST_START ; 1               ; 0               ; 0              ; 0                ; 0               ; 1                ;
+; c_state.ST_READ  ; 1               ; 0               ; 0              ; 0                ; 1               ; 0                ;
+; c_state.ST_WRITE ; 1               ; 0               ; 0              ; 1                ; 0               ; 0                ;
+; c_state.ST_ACK   ; 1               ; 0               ; 1              ; 0                ; 0               ; 0                ;
+; c_state.ST_STOP  ; 1               ; 1               ; 0              ; 0                ; 0               ; 0                ;
++------------------+-----------------+-----------------+----------------+------------------+-----------------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Protected by Synthesis                                                                                                                                  ;
++---------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+; Register Name                                     ; Protected by Synthesis Attribute or Preserve Register Assignment ; Not to be Touched by Netlist Optimizations ;
++---------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+; i2c_touch_config:Terasic_Touch_IP|read_data[1][7] ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|read_data[1][6] ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|read_data[1][5] ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|read_data[1][4] ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|read_data[1][3] ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|read_data[1][2] ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|read_data[1][1] ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|read_data[1][0] ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|c_state.0000    ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|c_state.0001    ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|c_state.0010    ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|c_state.0011    ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|c_state.0100    ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|c_state.0101    ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|c_state.0110    ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|c_state.0111    ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|c_state.1000    ; yes                                                              ; yes                                        ;
+; i2c_touch_config:Terasic_Touch_IP|c_state.1001    ; yes                                                              ; yes                                        ;
++---------------------------------------------------+------------------------------------------------------------------+--------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                   ;
++-----------------------------------------------+------------------------------------------------------+
+; Register name                                 ; Reason for Removal                                   ;
++-----------------------------------------------+------------------------------------------------------+
+; i2c_touch_config:Terasic_Touch_IP|txr[1..3,7] ; Stuck at GND due to stuck port data_in               ;
+; i2c_touch_config:Terasic_Touch_IP|txr[5,6]    ; Merged with i2c_touch_config:Terasic_Touch_IP|txr[4] ;
+; TS.get_code                                   ; Lost fanout                                          ;
+; i2c_touch_config:Terasic_Touch_IP|c_state~14  ; Lost fanout                                          ;
+; i2c_touch_config:Terasic_Touch_IP|c_state~15  ; Lost fanout                                          ;
+; i2c_touch_config:Terasic_Touch_IP|c_state~16  ; Lost fanout                                          ;
+; i2c_touch_config:Terasic_Touch_IP|c_state~17  ; Lost fanout                                          ;
+; SV.update11                                   ; Stuck at GND due to stuck port data_in               ;
+; i2c_touch_config:Terasic_Touch_IP|cnt[7..9]   ; Lost fanout                                          ;
+; TS.wait_for_ready                             ; Merged with TS.examine                               ;
+; Total Number of Removed Registers = 16        ;                                                      ;
++-----------------------------------------------+------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                        ;
++------------------------------------------+--------------------+------------------------------------------------------------------------------------+
+; Register name                            ; Reason for Removal ; Registers Removed due to This Register                                             ;
++------------------------------------------+--------------------+------------------------------------------------------------------------------------+
+; i2c_touch_config:Terasic_Touch_IP|cnt[9] ; Lost Fanouts       ; i2c_touch_config:Terasic_Touch_IP|cnt[8], i2c_touch_config:Terasic_Touch_IP|cnt[7] ;
++------------------------------------------+--------------------+------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 526   ;
+; Number of registers using Synchronous Clear  ; 63    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 240   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 384   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                ;
++-------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                 ; Fan out ;
++-------------------------------------------------------------------------------------------------------------------+---------+
+; vga_mem:vga_interface|vga_hs                                                                                      ; 1       ;
+; vga_mem:vga_interface|vga_vs                                                                                      ; 1       ;
+; i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|scl_oen ; 4       ;
+; px[1]                                                                                                             ; 6       ;
+; px[0]                                                                                                             ; 6       ;
+; px[5]                                                                                                             ; 7       ;
+; \main:lives[1]                                                                                                    ; 3       ;
+; \main:lives[0]                                                                                                    ; 4       ;
+; ballx[0]                                                                                                          ; 3       ;
+; ballx[2]                                                                                                          ; 3       ;
+; bally[0]                                                                                                          ; 7       ;
+; bally[2]                                                                                                          ; 6       ;
+; i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|clk_en  ; 3       ;
+; i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|sSDA    ; 4       ;
+; i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|sda_oen ; 4       ;
+; i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|dSCL    ; 1       ;
+; i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|sSCL    ; 6       ;
+; i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|dSDA    ; 1       ;
+; Total number of inverted registers = 18                                                                           ;         ;
++-------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |raquetball|i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|dcnt[2]                                        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |raquetball|i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|sr[4]                                          ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |raquetball|i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|sr[7]                                          ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 0 LEs                ; 28 LEs                 ; Yes        ; |raquetball|i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|c_state[14] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |raquetball|i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|cnt[3]      ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |raquetball|i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|c_state[0]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |raquetball|op_num[0]                                                                                                             ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |raquetball|i2c_touch_config:Terasic_Touch_IP|oREG_GESTURE[4]                                                                     ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |raquetball|i2c_touch_config:Terasic_Touch_IP|oREG_GESTURE[5]                                                                     ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |raquetball|i2c_touch_config:Terasic_Touch_IP|read_cnt[0]                                                                         ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 8 LEs                ; 12 LEs                 ; Yes        ; |raquetball|bally[5]                                                                                                              ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 10 LEs               ; 15 LEs                 ; Yes        ; |raquetball|ballx[1]                                                                                                              ;
+; 7:1                ; 10 bits   ; 40 LEs        ; 0 LEs                ; 40 LEs                 ; Yes        ; |raquetball|i2c_touch_config:Terasic_Touch_IP|cnt[6]                                                                              ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; Yes        ; |raquetball|i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|core_cmd[2]                                    ;
+; 13:1               ; 5 bits    ; 40 LEs        ; 25 LEs               ; 15 LEs                 ; Yes        ; |raquetball|y[1]                                                                                                                  ;
+; 17:1               ; 6 bits    ; 66 LEs        ; 36 LEs               ; 30 LEs                 ; Yes        ; |raquetball|x[6]                                                                                                                  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |raquetball|\main:lives[0]                                                                                                        ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |raquetball|bally[0]                                                                                                              ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |raquetball|ballx[0]                                                                                                              ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |raquetball|sevenseg:dsp0|aout                                                                                                    ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |raquetball|TS                                                                                                                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |raquetball|i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|core_cmd                                       ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |raquetball|vga_mem:vga_interface|vcount                                                                                          ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |raquetball|sevenseg:dsp3|aout                                                                                                    ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |raquetball|Selector27                                                                                                            ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 6 LEs                ; 8 LEs                  ; No         ; |raquetball|Selector48                                                                                                            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |raquetball|i2c_touch_config:Terasic_Touch_IP|Selector24                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for vga_mem:vga_interface|vram:Video_RAM|altsyncram:altsyncram_component|altsyncram_dp14:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                           ;
++---------------------------------+--------------------+------+--------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                            ;
++---------------------------------+--------------------+------+--------------------------------------------------------------+
+
+
++----------------------------------------------------------------+
+; Source assignments for i2c_touch_config:Terasic_Touch_IP       ;
++------------------------------+-------+------+------------------+
+; Assignment                   ; Value ; From ; To               ;
++------------------------------+-------+------+------------------+
+; PRESERVE_REGISTER            ; on    ; -    ; c_state.0000     ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; c_state.0000     ;
+; PRESERVE_REGISTER            ; on    ; -    ; c_state.0001     ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; c_state.0001     ;
+; PRESERVE_REGISTER            ; on    ; -    ; c_state.0010     ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; c_state.0010     ;
+; PRESERVE_REGISTER            ; on    ; -    ; c_state.0011     ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; c_state.0011     ;
+; PRESERVE_REGISTER            ; on    ; -    ; c_state.0100     ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; c_state.0100     ;
+; PRESERVE_REGISTER            ; on    ; -    ; c_state.0101     ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; c_state.0101     ;
+; PRESERVE_REGISTER            ; on    ; -    ; c_state.0110     ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; c_state.0110     ;
+; PRESERVE_REGISTER            ; on    ; -    ; c_state.0111     ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; c_state.0111     ;
+; PRESERVE_REGISTER            ; on    ; -    ; c_state.1000     ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; c_state.1000     ;
+; PRESERVE_REGISTER            ; on    ; -    ; c_state.1001     ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; c_state.1001     ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[0][7]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[0][7]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[0][6]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[0][6]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[0][5]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[0][5]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[0][4]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[0][4]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[0][3]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[0][3]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[0][2]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[0][2]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[0][1]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[0][1]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[0][0]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[0][0]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[1][7]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[1][7]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[1][6]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[1][6]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[1][5]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[1][5]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[1][4]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[1][4]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[1][3]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[1][3]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[1][2]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[1][2]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[1][1]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[1][1]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[1][0]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[1][0]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[2][7]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[2][7]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[2][6]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[2][6]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[2][5]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[2][5]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[2][4]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[2][4]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[2][3]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[2][3]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[2][2]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[2][2]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[2][1]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[2][1]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[2][0]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[2][0]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[3][7]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[3][7]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[3][6]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[3][6]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[3][5]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[3][5]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[3][4]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[3][4]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[3][3]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[3][3]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[3][2]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[3][2]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[3][1]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[3][1]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[3][0]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[3][0]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[4][7]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[4][7]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[4][6]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[4][6]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[4][5]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[4][5]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[4][4]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[4][4]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[4][3]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[4][3]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[4][2]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[4][2]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[4][1]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[4][1]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[4][0]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[4][0]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[5][7]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[5][7]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[5][6]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[5][6]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[5][5]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[5][5]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[5][4]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[5][4]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[5][3]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[5][3]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[5][2]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[5][2]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[5][1]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[5][1]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[5][0]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[5][0]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[6][7]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[6][7]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[6][6]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[6][6]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[6][5]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[6][5]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[6][4]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[6][4]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[6][3]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[6][3]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[6][2]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[6][2]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[6][1]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[6][1]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[6][0]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[6][0]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[7][7]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[7][7]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[7][6]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[7][6]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[7][5]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[7][5]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[7][4]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[7][4]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[7][3]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[7][3]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[7][2]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[7][2]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[7][1]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[7][1]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[7][0]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[7][0]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[8][7]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[8][7]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[8][6]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[8][6]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[8][5]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[8][5]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[8][4]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[8][4]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[8][3]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[8][3]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[8][2]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[8][2]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[8][1]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[8][1]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[8][0]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[8][0]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[9][7]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[9][7]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[9][6]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[9][6]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[9][5]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[9][5]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[9][4]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[9][4]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[9][3]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[9][3]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[9][2]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[9][2]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[9][1]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[9][1]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[9][0]  ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[9][0]  ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[10][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[10][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[10][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[10][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[10][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[10][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[10][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[10][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[10][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[10][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[10][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[10][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[10][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[10][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[10][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[10][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[11][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[11][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[11][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[11][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[11][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[11][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[11][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[11][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[11][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[11][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[11][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[11][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[11][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[11][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[11][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[11][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[12][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[12][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[12][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[12][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[12][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[12][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[12][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[12][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[12][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[12][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[12][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[12][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[12][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[12][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[12][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[12][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[13][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[13][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[13][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[13][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[13][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[13][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[13][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[13][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[13][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[13][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[13][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[13][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[13][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[13][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[13][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[13][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[14][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[14][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[14][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[14][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[14][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[14][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[14][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[14][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[14][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[14][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[14][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[14][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[14][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[14][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[14][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[14][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[15][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[15][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[15][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[15][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[15][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[15][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[15][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[15][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[15][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[15][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[15][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[15][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[15][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[15][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[15][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[15][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[16][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[16][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[16][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[16][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[16][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[16][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[16][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[16][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[16][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[16][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[16][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[16][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[16][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[16][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[16][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[16][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[17][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[17][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[17][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[17][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[17][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[17][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[17][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[17][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[17][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[17][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[17][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[17][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[17][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[17][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[17][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[17][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[18][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[18][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[18][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[18][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[18][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[18][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[18][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[18][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[18][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[18][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[18][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[18][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[18][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[18][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[18][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[18][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[19][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[19][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[19][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[19][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[19][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[19][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[19][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[19][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[19][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[19][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[19][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[19][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[19][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[19][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[19][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[19][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[20][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[20][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[20][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[20][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[20][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[20][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[20][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[20][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[20][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[20][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[20][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[20][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[20][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[20][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[20][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[20][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[21][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[21][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[21][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[21][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[21][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[21][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[21][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[21][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[21][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[21][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[21][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[21][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[21][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[21][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[21][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[21][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[22][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[22][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[22][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[22][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[22][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[22][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[22][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[22][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[22][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[22][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[22][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[22][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[22][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[22][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[22][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[22][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[23][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[23][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[23][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[23][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[23][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[23][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[23][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[23][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[23][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[23][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[23][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[23][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[23][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[23][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[23][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[23][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[24][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[24][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[24][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[24][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[24][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[24][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[24][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[24][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[24][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[24][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[24][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[24][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[24][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[24][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[24][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[24][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[25][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[25][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[25][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[25][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[25][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[25][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[25][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[25][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[25][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[25][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[25][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[25][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[25][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[25][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[25][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[25][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[26][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[26][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[26][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[26][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[26][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[26][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[26][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[26][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[26][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[26][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[26][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[26][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[26][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[26][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[26][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[26][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[27][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[27][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[27][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[27][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[27][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[27][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[27][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[27][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[27][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[27][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[27][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[27][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[27][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[27][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[27][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[27][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[28][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[28][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[28][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[28][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[28][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[28][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[28][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[28][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[28][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[28][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[28][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[28][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[28][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[28][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[28][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[28][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[29][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[29][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[29][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[29][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[29][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[29][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[29][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[29][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[29][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[29][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[29][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[29][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[29][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[29][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[29][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[29][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[30][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[30][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[30][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[30][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[30][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[30][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[30][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[30][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[30][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[30][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[30][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[30][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[30][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[30][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[30][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[30][0] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[31][7] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[31][7] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[31][6] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[31][6] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[31][5] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[31][5] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[31][4] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[31][4] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[31][3] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[31][3] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[31][2] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[31][2] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[31][1] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[31][1] ;
+; PRESERVE_REGISTER            ; on    ; -    ; read_data[31][0] ;
+; PRESERVE_FANOUT_FREE_NODE    ; on    ; -    ; read_data[31][0] ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; sta              ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; sta              ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; sto              ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; sto              ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; rd               ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; rd               ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; wr               ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; wr               ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; ack              ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; ack              ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; int_n            ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; int_n            ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; REG_GESTURE[7]   ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; REG_GESTURE[7]   ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; REG_GESTURE[6]   ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; REG_GESTURE[6]   ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; REG_GESTURE[5]   ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; REG_GESTURE[5]   ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; REG_GESTURE[4]   ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; REG_GESTURE[4]   ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; REG_GESTURE[3]   ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; REG_GESTURE[3]   ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; REG_GESTURE[2]   ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; REG_GESTURE[2]   ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; REG_GESTURE[1]   ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; REG_GESTURE[1]   ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; REG_GESTURE[0]   ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; REG_GESTURE[0]   ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; done             ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; done             ;
+; IGNORE_LCELL_BUFFERS         ; off   ; -    ; i2c_al           ;
+; REMOVE_REDUNDANT_LOGIC_CELLS ; off   ; -    ; i2c_al           ;
++------------------------------+-------+------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_mem:vga_interface|vram:Video_RAM|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                  ;
++------------------------------------+----------------------+-------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                               ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                        ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                               ;
+; OPERATION_MODE                     ; BIDIR_DUAL_PORT      ; Untyped                                               ;
+; WIDTH_A                            ; 3                    ; Signed Integer                                        ;
+; WIDTHAD_A                          ; 13                   ; Signed Integer                                        ;
+; NUMWORDS_A                         ; 8192                 ; Signed Integer                                        ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                               ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                               ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                               ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                               ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                               ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                               ;
+; WIDTH_B                            ; 3                    ; Signed Integer                                        ;
+; WIDTHAD_B                          ; 13                   ; Signed Integer                                        ;
+; NUMWORDS_B                         ; 8192                 ; Signed Integer                                        ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                               ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                               ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                               ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                               ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                               ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                               ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                               ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                               ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                               ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                               ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                               ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                               ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                        ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                                        ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                               ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer                                        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                               ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                               ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                               ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                               ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                               ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer                                        ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                               ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                                               ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                               ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                                               ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                               ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                               ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                               ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                               ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer                                        ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                               ;
+; CBXI_PARAMETER                     ; altsyncram_dp14      ; Untyped                                               ;
++------------------------------------+----------------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_mem:vga_interface|VGAPLL:pll|VGAPLL_0002:vgapll_inst|altera_pll:altera_pll_i ;
++--------------------------------------+------------------------+---------------------------------------------------------------+
+; Parameter Name                       ; Value                  ; Type                                                          ;
++--------------------------------------+------------------------+---------------------------------------------------------------+
+; reference_clock_frequency            ; 50.0 MHz               ; String                                                        ;
+; fractional_vco_multiplier            ; false                  ; String                                                        ;
+; pll_type                             ; General                ; String                                                        ;
+; pll_subtype                          ; General                ; String                                                        ;
+; number_of_clocks                     ; 1                      ; Signed Integer                                                ;
+; operation_mode                       ; direct                 ; String                                                        ;
+; deserialization_factor               ; 4                      ; Signed Integer                                                ;
+; data_rate                            ; 0                      ; Signed Integer                                                ;
+; sim_additional_refclk_cycles_to_lock ; 0                      ; Signed Integer                                                ;
+; output_clock_frequency0              ; 33.289473 MHz          ; String                                                        ;
+; phase_shift0                         ; 0 ps                   ; String                                                        ;
+; duty_cycle0                          ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency1              ; 0 MHz                  ; String                                                        ;
+; phase_shift1                         ; 0 ps                   ; String                                                        ;
+; duty_cycle1                          ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency2              ; 0 MHz                  ; String                                                        ;
+; phase_shift2                         ; 0 ps                   ; String                                                        ;
+; duty_cycle2                          ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency3              ; 0 MHz                  ; String                                                        ;
+; phase_shift3                         ; 0 ps                   ; String                                                        ;
+; duty_cycle3                          ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency4              ; 0 MHz                  ; String                                                        ;
+; phase_shift4                         ; 0 ps                   ; String                                                        ;
+; duty_cycle4                          ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency5              ; 0 MHz                  ; String                                                        ;
+; phase_shift5                         ; 0 ps                   ; String                                                        ;
+; duty_cycle5                          ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency6              ; 0 MHz                  ; String                                                        ;
+; phase_shift6                         ; 0 ps                   ; String                                                        ;
+; duty_cycle6                          ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency7              ; 0 MHz                  ; String                                                        ;
+; phase_shift7                         ; 0 ps                   ; String                                                        ;
+; duty_cycle7                          ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency8              ; 0 MHz                  ; String                                                        ;
+; phase_shift8                         ; 0 ps                   ; String                                                        ;
+; duty_cycle8                          ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency9              ; 0 MHz                  ; String                                                        ;
+; phase_shift9                         ; 0 ps                   ; String                                                        ;
+; duty_cycle9                          ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency10             ; 0 MHz                  ; String                                                        ;
+; phase_shift10                        ; 0 ps                   ; String                                                        ;
+; duty_cycle10                         ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency11             ; 0 MHz                  ; String                                                        ;
+; phase_shift11                        ; 0 ps                   ; String                                                        ;
+; duty_cycle11                         ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency12             ; 0 MHz                  ; String                                                        ;
+; phase_shift12                        ; 0 ps                   ; String                                                        ;
+; duty_cycle12                         ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency13             ; 0 MHz                  ; String                                                        ;
+; phase_shift13                        ; 0 ps                   ; String                                                        ;
+; duty_cycle13                         ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency14             ; 0 MHz                  ; String                                                        ;
+; phase_shift14                        ; 0 ps                   ; String                                                        ;
+; duty_cycle14                         ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency15             ; 0 MHz                  ; String                                                        ;
+; phase_shift15                        ; 0 ps                   ; String                                                        ;
+; duty_cycle15                         ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency16             ; 0 MHz                  ; String                                                        ;
+; phase_shift16                        ; 0 ps                   ; String                                                        ;
+; duty_cycle16                         ; 50                     ; Signed Integer                                                ;
+; output_clock_frequency17             ; 0 MHz                  ; String                                                        ;
+; phase_shift17                        ; 0 ps                   ; String                                                        ;
+; duty_cycle17                         ; 50                     ; Signed Integer                                                ;
+; clock_name_0                         ;                        ; String                                                        ;
+; clock_name_1                         ;                        ; String                                                        ;
+; clock_name_2                         ;                        ; String                                                        ;
+; clock_name_3                         ;                        ; String                                                        ;
+; clock_name_4                         ;                        ; String                                                        ;
+; clock_name_5                         ;                        ; String                                                        ;
+; clock_name_6                         ;                        ; String                                                        ;
+; clock_name_7                         ;                        ; String                                                        ;
+; clock_name_8                         ;                        ; String                                                        ;
+; clock_name_global_0                  ; false                  ; String                                                        ;
+; clock_name_global_1                  ; false                  ; String                                                        ;
+; clock_name_global_2                  ; false                  ; String                                                        ;
+; clock_name_global_3                  ; false                  ; String                                                        ;
+; clock_name_global_4                  ; false                  ; String                                                        ;
+; clock_name_global_5                  ; false                  ; String                                                        ;
+; clock_name_global_6                  ; false                  ; String                                                        ;
+; clock_name_global_7                  ; false                  ; String                                                        ;
+; clock_name_global_8                  ; false                  ; String                                                        ;
+; m_cnt_hi_div                         ; 1                      ; Signed Integer                                                ;
+; m_cnt_lo_div                         ; 1                      ; Signed Integer                                                ;
+; m_cnt_bypass_en                      ; false                  ; String                                                        ;
+; m_cnt_odd_div_duty_en                ; false                  ; String                                                        ;
+; n_cnt_hi_div                         ; 1                      ; Signed Integer                                                ;
+; n_cnt_lo_div                         ; 1                      ; Signed Integer                                                ;
+; n_cnt_bypass_en                      ; false                  ; String                                                        ;
+; n_cnt_odd_div_duty_en                ; false                  ; String                                                        ;
+; c_cnt_hi_div0                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div0                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en0                     ; false                  ; String                                                        ;
+; c_cnt_in_src0                        ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en0               ; false                  ; String                                                        ;
+; c_cnt_prst0                          ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst0                   ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div1                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div1                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en1                     ; false                  ; String                                                        ;
+; c_cnt_in_src1                        ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en1               ; false                  ; String                                                        ;
+; c_cnt_prst1                          ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst1                   ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div2                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div2                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en2                     ; false                  ; String                                                        ;
+; c_cnt_in_src2                        ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en2               ; false                  ; String                                                        ;
+; c_cnt_prst2                          ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst2                   ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div3                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div3                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en3                     ; false                  ; String                                                        ;
+; c_cnt_in_src3                        ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en3               ; false                  ; String                                                        ;
+; c_cnt_prst3                          ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst3                   ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div4                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div4                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en4                     ; false                  ; String                                                        ;
+; c_cnt_in_src4                        ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en4               ; false                  ; String                                                        ;
+; c_cnt_prst4                          ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst4                   ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div5                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div5                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en5                     ; false                  ; String                                                        ;
+; c_cnt_in_src5                        ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en5               ; false                  ; String                                                        ;
+; c_cnt_prst5                          ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst5                   ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div6                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div6                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en6                     ; false                  ; String                                                        ;
+; c_cnt_in_src6                        ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en6               ; false                  ; String                                                        ;
+; c_cnt_prst6                          ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst6                   ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div7                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div7                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en7                     ; false                  ; String                                                        ;
+; c_cnt_in_src7                        ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en7               ; false                  ; String                                                        ;
+; c_cnt_prst7                          ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst7                   ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div8                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div8                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en8                     ; false                  ; String                                                        ;
+; c_cnt_in_src8                        ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en8               ; false                  ; String                                                        ;
+; c_cnt_prst8                          ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst8                   ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div9                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div9                        ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en9                     ; false                  ; String                                                        ;
+; c_cnt_in_src9                        ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en9               ; false                  ; String                                                        ;
+; c_cnt_prst9                          ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst9                   ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div10                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div10                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en10                    ; false                  ; String                                                        ;
+; c_cnt_in_src10                       ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en10              ; false                  ; String                                                        ;
+; c_cnt_prst10                         ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst10                  ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div11                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div11                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en11                    ; false                  ; String                                                        ;
+; c_cnt_in_src11                       ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en11              ; false                  ; String                                                        ;
+; c_cnt_prst11                         ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst11                  ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div12                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div12                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en12                    ; false                  ; String                                                        ;
+; c_cnt_in_src12                       ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en12              ; false                  ; String                                                        ;
+; c_cnt_prst12                         ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst12                  ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div13                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div13                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en13                    ; false                  ; String                                                        ;
+; c_cnt_in_src13                       ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en13              ; false                  ; String                                                        ;
+; c_cnt_prst13                         ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst13                  ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div14                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div14                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en14                    ; false                  ; String                                                        ;
+; c_cnt_in_src14                       ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en14              ; false                  ; String                                                        ;
+; c_cnt_prst14                         ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst14                  ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div15                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div15                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en15                    ; false                  ; String                                                        ;
+; c_cnt_in_src15                       ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en15              ; false                  ; String                                                        ;
+; c_cnt_prst15                         ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst15                  ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div16                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div16                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en16                    ; false                  ; String                                                        ;
+; c_cnt_in_src16                       ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en16              ; false                  ; String                                                        ;
+; c_cnt_prst16                         ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst16                  ; 0                      ; Signed Integer                                                ;
+; c_cnt_hi_div17                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_lo_div17                       ; 1                      ; Signed Integer                                                ;
+; c_cnt_bypass_en17                    ; false                  ; String                                                        ;
+; c_cnt_in_src17                       ; ph_mux_clk             ; String                                                        ;
+; c_cnt_odd_div_duty_en17              ; false                  ; String                                                        ;
+; c_cnt_prst17                         ; 1                      ; Signed Integer                                                ;
+; c_cnt_ph_mux_prst17                  ; 0                      ; Signed Integer                                                ;
+; pll_vco_div                          ; 1                      ; Signed Integer                                                ;
+; pll_slf_rst                          ; false                  ; String                                                        ;
+; pll_bw_sel                           ; low                    ; String                                                        ;
+; pll_output_clk_frequency             ; 0 MHz                  ; String                                                        ;
+; pll_cp_current                       ; 0                      ; Signed Integer                                                ;
+; pll_bwctrl                           ; 0                      ; Signed Integer                                                ;
+; pll_fractional_division              ; 1                      ; Signed Integer                                                ;
+; pll_fractional_cout                  ; 24                     ; Signed Integer                                                ;
+; pll_dsm_out_sel                      ; 1st_order              ; String                                                        ;
+; mimic_fbclk_type                     ; gclk                   ; String                                                        ;
+; pll_fbclk_mux_1                      ; glb                    ; String                                                        ;
+; pll_fbclk_mux_2                      ; fb_1                   ; String                                                        ;
+; pll_m_cnt_in_src                     ; ph_mux_clk             ; String                                                        ;
+; pll_vcoph_div                        ; 1                      ; Signed Integer                                                ;
+; refclk1_frequency                    ; 0 MHz                  ; String                                                        ;
+; pll_clkin_0_src                      ; clk_0                  ; String                                                        ;
+; pll_clkin_1_src                      ; clk_0                  ; String                                                        ;
+; pll_clk_loss_sw_en                   ; false                  ; String                                                        ;
+; pll_auto_clk_sw_en                   ; false                  ; String                                                        ;
+; pll_manu_clk_sw_en                   ; false                  ; String                                                        ;
+; pll_clk_sw_dly                       ; 0                      ; Signed Integer                                                ;
+; pll_extclk_0_cnt_src                 ; pll_extclk_cnt_src_vss ; String                                                        ;
+; pll_extclk_1_cnt_src                 ; pll_extclk_cnt_src_vss ; String                                                        ;
++--------------------------------------+------------------------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller ;
++----------------+-------+--------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                       ;
++----------------+-------+--------------------------------------------------------------------------------------------+
+; ST_IDLE        ; 00000 ; Unsigned Binary                                                                            ;
+; ST_START       ; 00001 ; Unsigned Binary                                                                            ;
+; ST_READ        ; 00010 ; Unsigned Binary                                                                            ;
+; ST_WRITE       ; 00100 ; Unsigned Binary                                                                            ;
+; ST_ACK         ; 01000 ; Unsigned Binary                                                                            ;
+; ST_STOP        ; 10000 ; Unsigned Binary                                                                            ;
++----------------+-------+--------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller ;
++----------------+-------------------+-------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value             ; Type                                                                                                              ;
++----------------+-------------------+-------------------------------------------------------------------------------------------------------------------+
+; idle           ; 00000000000000000 ; Unsigned Binary                                                                                                   ;
+; start_a        ; 00000000000000001 ; Unsigned Binary                                                                                                   ;
+; start_b        ; 00000000000000010 ; Unsigned Binary                                                                                                   ;
+; start_c        ; 00000000000000100 ; Unsigned Binary                                                                                                   ;
+; start_d        ; 00000000000001000 ; Unsigned Binary                                                                                                   ;
+; start_e        ; 00000000000010000 ; Unsigned Binary                                                                                                   ;
+; stop_a         ; 00000000000100000 ; Unsigned Binary                                                                                                   ;
+; stop_b         ; 00000000001000000 ; Unsigned Binary                                                                                                   ;
+; stop_c         ; 00000000010000000 ; Unsigned Binary                                                                                                   ;
+; stop_d         ; 00000000100000000 ; Unsigned Binary                                                                                                   ;
+; rd_a           ; 00000001000000000 ; Unsigned Binary                                                                                                   ;
+; rd_b           ; 00000010000000000 ; Unsigned Binary                                                                                                   ;
+; rd_c           ; 00000100000000000 ; Unsigned Binary                                                                                                   ;
+; rd_d           ; 00001000000000000 ; Unsigned Binary                                                                                                   ;
+; wr_a           ; 00010000000000000 ; Unsigned Binary                                                                                                   ;
+; wr_b           ; 00100000000000000 ; Unsigned Binary                                                                                                   ;
+; wr_c           ; 01000000000000000 ; Unsigned Binary                                                                                                   ;
+; wr_d           ; 10000000000000000 ; Unsigned Binary                                                                                                   ;
++----------------+-------------------+-------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                 ;
++-------------------------------------------+----------------------------------------------------------------------+
+; Name                                      ; Value                                                                ;
++-------------------------------------------+----------------------------------------------------------------------+
+; Number of entity instances                ; 1                                                                    ;
+; Entity Instance                           ; vga_mem:vga_interface|vram:Video_RAM|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; BIDIR_DUAL_PORT                                                      ;
+;     -- WIDTH_A                            ; 3                                                                    ;
+;     -- NUMWORDS_A                         ; 8192                                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                         ;
+;     -- WIDTH_B                            ; 3                                                                    ;
+;     -- NUMWORDS_B                         ; 8192                                                                 ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                               ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                         ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                 ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                            ;
++-------------------------------------------+----------------------------------------------------------------------+
+
+
++-------------------------------------------+
+; Port Connectivity Checks: "sevenseg:dsp3" ;
++--------+-------+----------+---------------+
+; Port   ; Type  ; Severity ; Details       ;
++--------+-------+----------+---------------+
+; ain[3] ; Input ; Info     ; Stuck at GND  ;
+; ain[0] ; Input ; Info     ; Stuck at VCC  ;
++--------+-------+----------+---------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "sevenseg:dsp2"   ;
++-----------+-------+----------+--------------+
+; Port      ; Type  ; Severity ; Details      ;
++-----------+-------+----------+--------------+
+; ain[3..1] ; Input ; Info     ; Stuck at GND ;
++-----------+-------+----------+--------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "sevenseg:dsp1"   ;
++-----------+-------+----------+--------------+
+; Port      ; Type  ; Severity ; Details      ;
++-----------+-------+----------+--------------+
+; ain[1..0] ; Input ; Info     ; Stuck at GND ;
+; ain[3]    ; Input ; Info     ; Stuck at GND ;
++-----------+-------+----------+--------------+
+
+
++-------------------------------------------+
+; Port Connectivity Checks: "sevenseg:dsp0" ;
++--------+-------+----------+---------------+
+; Port   ; Type  ; Severity ; Details       ;
++--------+-------+----------+---------------+
+; ain[0] ; Input ; Info     ; Stuck at GND  ;
++--------+-------+----------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller"                       ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; rst            ; Input  ; Info     ; Stuck at GND                                                                        ;
+; ena            ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; clk_cnt[4..3]  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; clk_cnt[15..5] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; clk_cnt[2..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; ack_out        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; i2c_busy       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "i2c_touch_config:Terasic_Touch_IP"                                                              ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port             ; Type   ; Severity ; Details                                                                             ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+; oREG_X1          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; oREG_Y1          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; oREG_X2          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; oREG_Y2          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; oREG_X3          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; oREG_Y3          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; oREG_X4          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; oREG_Y4          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; oREG_X5          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; oREG_Y5          ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; oREG_TOUCH_COUNT ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_mem:vga_interface|vram:Video_RAM" ;
++--------+-------+----------+--------------------------------------+
+; Port   ; Type  ; Severity ; Details                              ;
++--------+-------+----------+--------------------------------------+
+; wren_a ; Input ; Info     ; Stuck at GND                         ;
++--------+-------+----------+--------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 526                         ;
+;     CLR               ; 110                         ;
+;     CLR SCLR          ; 30                          ;
+;     ENA               ; 284                         ;
+;     ENA CLR           ; 67                          ;
+;     ENA CLR SCLR      ; 33                          ;
+;     plain             ; 2                           ;
+; arriav_io_obuf        ; 2                           ;
+; arriav_lcell_comb     ; 555                         ;
+;     arith             ; 103                         ;
+;         1 data inputs ; 86                          ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 11                          ;
+;     extend            ; 5                           ;
+;         7 data inputs ; 5                           ;
+;     normal            ; 447                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 27                          ;
+;         2 data inputs ; 80                          ;
+;         3 data inputs ; 45                          ;
+;         4 data inputs ; 98                          ;
+;         5 data inputs ; 93                          ;
+;         6 data inputs ; 102                         ;
+; boundary_port         ; 92                          ;
+; generic_pll           ; 1                           ;
+; stratixv_ram_block    ; 3                           ;
+;                       ;                             ;
+; Max LUT depth         ; 5.20                        ;
+; Average LUT depth     ; 3.09                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+    Info: Processing started: Mon Mar 27 17:09:21 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vga_basic -c vga_basic
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file VGA_Animation.vhd
+    Info (12022): Found design unit 1: VGA_Animation-DE1_SoC_MTL2 File: /u/ugrads/njohnson/Documents/ELE 301/lab07/VGA_Animation.vhd Line: 17
+    Info (12023): Found entity 1: VGA_Animation File: /u/ugrads/njohnson/Documents/ELE 301/lab07/VGA_Animation.vhd Line: 5
+Info (12021): Found 3 design units, including 3 entities, in source file i2c_touch_config.v
+    Info (12023): Found entity 1: i2c_touch_config File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 2
+    Info (12023): Found entity 2: i2c_master_byte_ctrl File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 360
+    Info (12023): Found entity 3: i2c_master_bit_ctrl File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 640
+Info (12021): Found 2 design units, including 1 entities, in source file VGAPLL.vhd
+    Info (12022): Found design unit 1: VGAPLL-rtl File: /u/ugrads/njohnson/Documents/ELE 301/lab07/VGAPLL.vhd Line: 19
+    Info (12023): Found entity 1: VGAPLL File: /u/ugrads/njohnson/Documents/ELE 301/lab07/VGAPLL.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file VGAPLL/VGAPLL_0002.v
+    Info (12023): Found entity 1: VGAPLL_0002 File: /u/ugrads/njohnson/Documents/ELE 301/lab07/VGAPLL/VGAPLL_0002.v Line: 2
+Info (12021): Found 2 design units, including 1 entities, in source file vga_mem.vhd
+    Info (12022): Found design unit 1: vga_mem-DE1_SoC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/vga_mem.vhd Line: 21
+    Info (12023): Found entity 1: vga_mem File: /u/ugrads/njohnson/Documents/ELE 301/lab07/vga_mem.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file vram.vhd
+    Info (12022): Found design unit 1: vram-SYN File: /u/ugrads/njohnson/Documents/ELE 301/lab07/vram.vhd Line: 60
+    Info (12023): Found entity 1: vram File: /u/ugrads/njohnson/Documents/ELE 301/lab07/vram.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file sevenseg.vhd
+    Info (12022): Found design unit 1: sevenseg-modified File: /u/ugrads/njohnson/Documents/ELE 301/lab07/sevenseg.vhd Line: 10
+    Info (12023): Found entity 1: sevenseg File: /u/ugrads/njohnson/Documents/ELE 301/lab07/sevenseg.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file Raquetball.vhd
+    Info (12022): Found design unit 1: raquetball-DE1_SoC_MTL2 File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 17
+    Info (12023): Found entity 1: raquetball File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 5
+Info (12127): Elaborating entity "Raquetball" for the top level hierarchy
+Warning (10873): Using initial value X (don't care) for net "GPIO_1[29]" at Raquetball.vhd(10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 10
+Warning (10873): Using initial value X (don't care) for net "GPIO_1[17..16]" at Raquetball.vhd(10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 10
+Warning (10873): Using initial value X (don't care) for net "GPIO_1[2]" at Raquetball.vhd(10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 10
+Warning (10873): Using initial value X (don't care) for net "GPIO_1[0]" at Raquetball.vhd(10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 10
+Info (12128): Elaborating entity "vga_mem" for hierarchy "vga_mem:vga_interface" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 99
+Info (12128): Elaborating entity "vram" for hierarchy "vga_mem:vga_interface|vram:Video_RAM" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/vga_mem.vhd Line: 39
+Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_mem:vga_interface|vram:Video_RAM|altsyncram:altsyncram_component" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/vram.vhd Line: 69
+Info (12130): Elaborated megafunction instantiation "vga_mem:vga_interface|vram:Video_RAM|altsyncram:altsyncram_component" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/vram.vhd Line: 69
+Info (12133): Instantiated megafunction "vga_mem:vga_interface|vram:Video_RAM|altsyncram:altsyncram_component" with the following parameter: File: /u/ugrads/njohnson/Documents/ELE 301/lab07/vram.vhd Line: 69
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "UNUSED"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "8192"
+    Info (12134): Parameter "numwords_b" = "8192"
+    Info (12134): Parameter "operation_mode" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "3"
+    Info (12134): Parameter "width_b" = "3"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "13"
+    Info (12134): Parameter "widthad_b" = "13"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_dp14.tdf
+    Info (12023): Found entity 1: altsyncram_dp14 File: /u/ugrads/njohnson/Documents/ELE 301/lab07/db/altsyncram_dp14.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_dp14" for hierarchy "vga_mem:vga_interface|vram:Video_RAM|altsyncram:altsyncram_component|altsyncram_dp14:auto_generated" File: /net/usr/quartus16.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "VGAPLL" for hierarchy "vga_mem:vga_interface|VGAPLL:pll" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/vga_mem.vhd Line: 99
+Info (12128): Elaborating entity "VGAPLL_0002" for hierarchy "vga_mem:vga_interface|VGAPLL:pll|VGAPLL_0002:vgapll_inst" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/VGAPLL.vhd Line: 31
+Info (12128): Elaborating entity "altera_pll" for hierarchy "vga_mem:vga_interface|VGAPLL:pll|VGAPLL_0002:vgapll_inst|altera_pll:altera_pll_i" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/VGAPLL/VGAPLL_0002.v Line: 85
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "wire_to_nowhere_64" into its bus
+Info (12130): Elaborated megafunction instantiation "vga_mem:vga_interface|VGAPLL:pll|VGAPLL_0002:vgapll_inst|altera_pll:altera_pll_i" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/VGAPLL/VGAPLL_0002.v Line: 85
+Info (12133): Instantiated megafunction "vga_mem:vga_interface|VGAPLL:pll|VGAPLL_0002:vgapll_inst|altera_pll:altera_pll_i" with the following parameter: File: /u/ugrads/njohnson/Documents/ELE 301/lab07/VGAPLL/VGAPLL_0002.v Line: 85
+    Info (12134): Parameter "fractional_vco_multiplier" = "false"
+    Info (12134): Parameter "reference_clock_frequency" = "50.0 MHz"
+    Info (12134): Parameter "operation_mode" = "direct"
+    Info (12134): Parameter "number_of_clocks" = "1"
+    Info (12134): Parameter "output_clock_frequency0" = "33.289473 MHz"
+    Info (12134): Parameter "phase_shift0" = "0 ps"
+    Info (12134): Parameter "duty_cycle0" = "50"
+    Info (12134): Parameter "output_clock_frequency1" = "0 MHz"
+    Info (12134): Parameter "phase_shift1" = "0 ps"
+    Info (12134): Parameter "duty_cycle1" = "50"
+    Info (12134): Parameter "output_clock_frequency2" = "0 MHz"
+    Info (12134): Parameter "phase_shift2" = "0 ps"
+    Info (12134): Parameter "duty_cycle2" = "50"
+    Info (12134): Parameter "output_clock_frequency3" = "0 MHz"
+    Info (12134): Parameter "phase_shift3" = "0 ps"
+    Info (12134): Parameter "duty_cycle3" = "50"
+    Info (12134): Parameter "output_clock_frequency4" = "0 MHz"
+    Info (12134): Parameter "phase_shift4" = "0 ps"
+    Info (12134): Parameter "duty_cycle4" = "50"
+    Info (12134): Parameter "output_clock_frequency5" = "0 MHz"
+    Info (12134): Parameter "phase_shift5" = "0 ps"
+    Info (12134): Parameter "duty_cycle5" = "50"
+    Info (12134): Parameter "output_clock_frequency6" = "0 MHz"
+    Info (12134): Parameter "phase_shift6" = "0 ps"
+    Info (12134): Parameter "duty_cycle6" = "50"
+    Info (12134): Parameter "output_clock_frequency7" = "0 MHz"
+    Info (12134): Parameter "phase_shift7" = "0 ps"
+    Info (12134): Parameter "duty_cycle7" = "50"
+    Info (12134): Parameter "output_clock_frequency8" = "0 MHz"
+    Info (12134): Parameter "phase_shift8" = "0 ps"
+    Info (12134): Parameter "duty_cycle8" = "50"
+    Info (12134): Parameter "output_clock_frequency9" = "0 MHz"
+    Info (12134): Parameter "phase_shift9" = "0 ps"
+    Info (12134): Parameter "duty_cycle9" = "50"
+    Info (12134): Parameter "output_clock_frequency10" = "0 MHz"
+    Info (12134): Parameter "phase_shift10" = "0 ps"
+    Info (12134): Parameter "duty_cycle10" = "50"
+    Info (12134): Parameter "output_clock_frequency11" = "0 MHz"
+    Info (12134): Parameter "phase_shift11" = "0 ps"
+    Info (12134): Parameter "duty_cycle11" = "50"
+    Info (12134): Parameter "output_clock_frequency12" = "0 MHz"
+    Info (12134): Parameter "phase_shift12" = "0 ps"
+    Info (12134): Parameter "duty_cycle12" = "50"
+    Info (12134): Parameter "output_clock_frequency13" = "0 MHz"
+    Info (12134): Parameter "phase_shift13" = "0 ps"
+    Info (12134): Parameter "duty_cycle13" = "50"
+    Info (12134): Parameter "output_clock_frequency14" = "0 MHz"
+    Info (12134): Parameter "phase_shift14" = "0 ps"
+    Info (12134): Parameter "duty_cycle14" = "50"
+    Info (12134): Parameter "output_clock_frequency15" = "0 MHz"
+    Info (12134): Parameter "phase_shift15" = "0 ps"
+    Info (12134): Parameter "duty_cycle15" = "50"
+    Info (12134): Parameter "output_clock_frequency16" = "0 MHz"
+    Info (12134): Parameter "phase_shift16" = "0 ps"
+    Info (12134): Parameter "duty_cycle16" = "50"
+    Info (12134): Parameter "output_clock_frequency17" = "0 MHz"
+    Info (12134): Parameter "phase_shift17" = "0 ps"
+    Info (12134): Parameter "duty_cycle17" = "50"
+    Info (12134): Parameter "pll_type" = "General"
+    Info (12134): Parameter "pll_subtype" = "General"
+Info (12128): Elaborating entity "i2c_touch_config" for hierarchy "i2c_touch_config:Terasic_Touch_IP" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 115
+Warning (10036): Verilog HDL or VHDL warning at i2c_touch_config.v(79): object "iack" assigned a value but never read File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 79
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(162): truncated value with size 32 to match size of target (10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 162
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(184): truncated value with size 32 to match size of target (10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 184
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(205): truncated value with size 32 to match size of target (10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 205
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(232): truncated value with size 32 to match size of target (10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 232
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(241): truncated value with size 32 to match size of target (6) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 241
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(271): truncated value with size 32 to match size of target (10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 271
+Warning (10766): Verilog HDL Synthesis Attribute warning at i2c_touch_config.v(142): ignoring full_case attribute on case statement with explicit default case item File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 142
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(343): truncated value with size 32 to match size of target (10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 343
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(344): truncated value with size 32 to match size of target (9) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 344
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(345): truncated value with size 32 to match size of target (10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 345
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(346): truncated value with size 32 to match size of target (9) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 346
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(347): truncated value with size 32 to match size of target (10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 347
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(348): truncated value with size 32 to match size of target (9) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 348
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(349): truncated value with size 32 to match size of target (10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 349
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(350): truncated value with size 32 to match size of target (9) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 350
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(351): truncated value with size 32 to match size of target (10) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 351
+Warning (10230): Verilog HDL assignment warning at i2c_touch_config.v(352): truncated value with size 32 to match size of target (9) File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 352
+Warning (10030): Net "data_reg" at i2c_touch_config.v(129) has no driver or initial value, using a default initial value '0' File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 129
+Info (12128): Elaborating entity "i2c_master_byte_ctrl" for hierarchy "i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 109
+Info (12128): Elaborating entity "i2c_master_bit_ctrl" for hierarchy "i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 453
+Info (10264): Verilog HDL Case Statement information at i2c_touch_config.v(880): all case item expressions in this case statement are onehot File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 880
+Info (12128): Elaborating entity "sevenseg" for hierarchy "sevenseg:dsp0" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 125
+Warning (13050): Open-drain buffer(s) that do not directly drive top-level pin(s) are removed
+    Warning (13051): Converted the fanout from the open-drain buffer "i2c_touch_config:Terasic_Touch_IP|scl_pad_i" to the node "i2c_touch_config:Terasic_Touch_IP|i2c_master_byte_ctrl:byte_controller|i2c_master_bit_ctrl:bit_controller|sSCL" into a wire File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 41
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[2]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX0[4]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 9
+    Warning (13410): Pin "GPIO_1[0]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 10
+    Warning (13410): Pin "GPIO_1[2]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 10
+    Warning (13410): Pin "GPIO_1[16]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 10
+    Warning (13410): Pin "GPIO_1[17]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 10
+    Warning (13410): Pin "GPIO_1[29]" is stuck at GND File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 10
+Info (286030): Timing-Driven Synthesis is running
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register \main:lives[1] will power up to High
+    Critical Warning (18010): Register \main:lives[0] will power up to High
+Info (17049): 8 registers lost all their fanouts during netlist optimizations.
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|done" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 62
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|i2c_al" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 68
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|REG_GESTURE[2]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 281
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|REG_GESTURE[3]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 281
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|REG_GESTURE[7]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 281
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|REG_GESTURE[6]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 281
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|REG_GESTURE[5]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 281
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|REG_GESTURE[4]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 281
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|REG_GESTURE[1]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 281
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|REG_GESTURE[0]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 281
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|sto" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 76
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|rd" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 77
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|wr" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 78
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|sta" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 75
+    Info (17048): Logic cell "i2c_touch_config:Terasic_Touch_IP|ack" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/i2c_touch_config.v Line: 80
+Info (144001): Generated suppressed messages file /u/ugrads/njohnson/Documents/ELE 301/lab07/output_files/vga_basic.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 7 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[4]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 7
+    Warning (15610): No output dependent on input pin "SW[5]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 7
+    Warning (15610): No output dependent on input pin "SW[6]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 7
+    Warning (15610): No output dependent on input pin "SW[9]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 7
+    Warning (15610): No output dependent on input pin "KEY[1]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 8
+    Warning (15610): No output dependent on input pin "KEY[2]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 8
+    Warning (15610): No output dependent on input pin "KEY[3]" File: /u/ugrads/njohnson/Documents/ELE 301/lab07/Raquetball.vhd Line: 8
+Info (21057): Implemented 990 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 16 input pins
+    Info (21059): Implemented 75 output pins
+    Info (21060): Implemented 1 bidirectional pins
+    Info (21061): Implemented 894 logic cells
+    Info (21064): Implemented 3 RAM segments
+    Info (21065): Implemented 1 PLLs
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 69 warnings
+    Info: Peak virtual memory: 1393 megabytes
+    Info: Processing ended: Mon Mar 27 17:09:38 2017
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:28
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /u/ugrads/njohnson/Documents/ELE 301/lab07/output_files/vga_basic.map.smsg.
+
+

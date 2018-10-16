@@ -1,0 +1,284 @@
+Analysis & Synthesis report for Rhody_System
+Mon Dec 18 20:55:15 2017
+Quartus Prime Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Messages
+  6. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++-----------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status ; Failed - Mon Dec 18 20:55:15 2017               ;
+; Quartus Prime Version       ; 16.0.0 Build 211 04/27/2016 SJ Standard Edition ;
+; Revision Name               ; Rhody_System                                    ;
+; Top-level Entity Name       ; Rhody_System                                    ;
+; Family                      ; Cyclone V                                       ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                       ;
+; Total registers             ; N/A until Partition Merge                       ;
+; Total pins                  ; N/A until Partition Merge                       ;
+; Total virtual pins          ; N/A until Partition Merge                       ;
+; Total block memory bits     ; N/A until Partition Merge                       ;
+; Total PLLs                  ; N/A until Partition Merge                       ;
+; Total DLLs                  ; N/A until Partition Merge                       ;
++-----------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; Rhody_System       ; Rhody_System       ;
+; Family name                                                                     ; Cyclone V          ; Cyclone IV GX      ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
+; Automatic Parallel Synthesis                                                    ; Off                ; Off                ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.0.0 Build 211 04/27/2016 SJ Standard Edition
+    Info: Processing started: Mon Dec 18 20:55:04 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Rhody_System -c Rhody_System
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_System.vhd
+    Info (12022): Found design unit 1: Rhody_System-DE1_SoC File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/Rhody_System.vhd Line: 20
+    Info (12023): Found entity 1: Rhody_System File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/Rhody_System.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU.vhd
+    Info (12022): Found design unit 1: Rhody_CPU-Behaviour File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/Rhody_CPU.vhd Line: 18
+    Info (12023): Found entity 1: Rhody_CPU File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/Rhody_CPU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipe.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipe-Structural File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/Rhody_CPU_pipe.vhd Line: 18
+    Info (12023): Found entity 1: Rhody_CPU_pipe File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/Rhody_CPU_pipe.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipe_BP.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipe_BP-Structural File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/Rhody_CPU_pipe_BP.vhd Line: 18
+    Info (12023): Found entity 1: Rhody_CPU_pipe_BP File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/Rhody_CPU_pipe_BP.vhd Line: 5
+Error (10500): VHDL syntax error at Rhody_CPU_pipe_div.vhd(261) near text "when";  expecting ";" File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/Rhody_CPU_pipe_div.vhd Line: 261
+Info (12021): Found 0 design units, including 0 entities, in source file Rhody_CPU_pipe_div.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file IO/keyboard.vhd
+    Info (12022): Found design unit 1: keyboard-keyboard File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/keyboard.vhd Line: 17
+    Info (12023): Found entity 1: keyboard File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/keyboard.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file IO/vga1.vhd
+    Info (12022): Found design unit 1: vga1-vga File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vga1.vhd Line: 24
+    Info (12023): Found entity 1: vga1 File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vga1.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file IO/vga2.vhd
+    Info (12022): Found design unit 1: vga2-vga File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vga2.vhd Line: 22
+    Info (12023): Found entity 1: vga2 File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vga2.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file IO/vga3.vhd
+    Info (12022): Found design unit 1: vga3-vga File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vga3.vhd Line: 22
+    Info (12023): Found entity 1: vga3 File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vga3.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file IO/gpio.vhd
+    Info (12022): Found design unit 1: gpio-gpio File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/gpio.vhd Line: 16
+    Info (12023): Found entity 1: gpio File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/gpio.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file IO/sevenseg.vhd
+    Info (12022): Found design unit 1: sevenseg-decoder File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/sevenseg.vhd Line: 10
+    Info (12023): Found entity 1: sevenseg File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/sevenseg.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file IO/timer.vhd
+    Info (12022): Found design unit 1: timer-repeat File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/timer.vhd Line: 18
+    Info (12023): Found entity 1: timer File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/timer.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file IO/random.vhd
+    Info (12022): Found design unit 1: random-WELLRNG512 File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/random.vhd Line: 34
+    Info (12023): Found entity 1: random File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/random.vhd Line: 5
+Info (12021): Found 3 design units, including 3 entities, in source file IO/i2c_touch_config.v
+    Info (12023): Found entity 1: i2c_touch_config File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/i2c_touch_config.v Line: 2
+    Info (12023): Found entity 2: i2c_master_byte_ctrl File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/i2c_touch_config.v Line: 360
+    Info (12023): Found entity 3: i2c_master_bit_ctrl File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/i2c_touch_config.v Line: 640
+Info (12021): Found 2 design units, including 1 entities, in source file ALU.vhd
+    Info (12022): Found design unit 1: alu-alu_arch File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/ALU.vhd Line: 14
+    Info (12023): Found entity 1: alu File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/ALU.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file IO/debounce.vhd
+    Info (12022): Found design unit 1: debounce-debounce File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/debounce.vhd Line: 14
+    Info (12023): Found entity 1: debounce File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/debounce.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file prog_rom.vhd
+    Info (12022): Found design unit 1: prog_rom-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/prog_rom.vhd Line: 53
+    Info (12023): Found entity 1: prog_rom File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/prog_rom.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file data_mem.vhd
+    Info (12022): Found design unit 1: data_mem-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/data_mem.vhd Line: 55
+    Info (12023): Found entity 1: data_mem File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/data_mem.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file stack_mem.vhd
+    Info (12022): Found design unit 1: stack_mem-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/stack_mem.vhd Line: 55
+    Info (12023): Found entity 1: stack_mem File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/stack_mem.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file sys_rom.vhd
+    Info (12022): Found design unit 1: sys_rom-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/sys_rom.vhd Line: 53
+    Info (12023): Found entity 1: sys_rom File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/sys_rom.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file ext_mem.vhd
+    Info (12022): Found design unit 1: ext_mem-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/ext_mem.vhd Line: 59
+    Info (12023): Found entity 1: ext_mem File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/ext_mem.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file buf_mem.vhd
+    Info (12022): Found design unit 1: buf_mem-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/buf_mem.vhd Line: 59
+    Info (12023): Found entity 1: buf_mem File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/buf_mem.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file add_sub.vhd
+    Info (12022): Found design unit 1: add_sub-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/add_sub.vhd Line: 56
+    Info (12023): Found entity 1: add_sub File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/add_sub.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file IO/KROM.vhd
+    Info (12022): Found design unit 1: krom-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/KROM.vhd Line: 53
+    Info (12023): Found entity 1: KROM File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/KROM.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file IO/VROM.vhd
+    Info (12022): Found design unit 1: vrom-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/VROM.vhd Line: 53
+    Info (12023): Found entity 1: VROM File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/VROM.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file IO/vgapll.vhd
+    Info (12022): Found design unit 1: vgapll-rtl File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vgapll.vhd Line: 19
+    Info (12023): Found entity 1: vgapll File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vgapll.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file IO/vgapll/vgapll_0002.v
+    Info (12023): Found entity 1: vgapll_0002 File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vgapll/vgapll_0002.v Line: 2
+Info (12021): Found 2 design units, including 1 entities, in source file IO/vramg.vhd
+    Info (12022): Found design unit 1: vramg-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vramg.vhd Line: 60
+    Info (12023): Found entity 1: vramg File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vramg.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file IO/vramg1.vhd
+    Info (12022): Found design unit 1: vramg1-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vramg1.vhd Line: 60
+    Info (12023): Found entity 1: vramg1 File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vramg1.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file IO/vramg2.vhd
+    Info (12022): Found design unit 1: vramg2-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vramg2.vhd Line: 60
+    Info (12023): Found entity 1: vramg2 File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vramg2.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file IO/vramt.vhd
+    Info (12022): Found design unit 1: vramt-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vramt.vhd Line: 60
+    Info (12023): Found entity 1: vramt File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vramt.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file IO/vramt1.vhd
+    Info (12022): Found design unit 1: vramt1-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vramt1.vhd Line: 60
+    Info (12023): Found entity 1: vramt1 File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/vramt1.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file IO/VROM1.vhd
+    Info (12022): Found design unit 1: vrom1-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/VROM1.vhd Line: 53
+    Info (12023): Found entity 1: VROM1 File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/IO/VROM1.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file lpmdivide.vhd
+    Info (12022): Found design unit 1: lpmdivide-SYN File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/lpmdivide.vhd Line: 55
+    Info (12023): Found entity 1: lpmdivide File: /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/lpmdivide.vhd Line: 43
+Info (144001): Generated suppressed messages file /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/output_files/Rhody_System.map.smsg
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
+    Error: Peak virtual memory: 1304 megabytes
+    Error: Processing ended: Mon Dec 18 20:55:15 2017
+    Error: Elapsed time: 00:00:11
+    Error: Total CPU time (on all processors): 00:00:26
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /u/ugrads/njohnson/Documents/ELE405/Rhody_System_restored/output_files/Rhody_System.map.smsg.
+
+

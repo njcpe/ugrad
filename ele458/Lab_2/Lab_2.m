@@ -1,0 +1,20 @@
+H=6; % Choose the desired motor displacement in pos-volts
+% Choose A = max acceleration in pos-volts/sec^2
+A=50;
+T=0.001;
+alpha= 26.66; % set equal to value found in Lab 1
+beta= 133.33; % set equal to value found in Lab 1
+D=sqrt(2*pi*H/A) % this is the calculated duration (settling time)
+alphap= 32.7345; % Use the value from Lab 1
+K=(alphap/2)^2/beta; % calculate K for critical damping
+t=[0:T:D]; % create a vector of time points
+w=sin(2*pi*t/D);
+acc=A*w; % acceleration signal a(t)
+vel=A*D/2/pi*(1-cos(2*pi*t/D)); % velocity signal v(t)
+pos=A*D/2/pi*(t-(D/2/pi*w)); % reference position signal, r(t)
+ref=[t' pos']; % create ref matrix for Simulink ’From Workspace’ block
+c1=alphap;
+c2=(alphap/2)^2;
+z=(acc+c1*vel)/c2+pos;
+z=[t' z']; % create z matrix for Simulink ’From Workspace’ block
+sim("Lab_2_sim.slx");
