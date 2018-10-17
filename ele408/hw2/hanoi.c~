@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void Hanoi(int n, char src, char dest, char aux);
+
+int main(int argc, char* argv[]){
+  int num;
+  if(argc>1){
+    num=atoi(argv[1]);
+    if(num>0&&num<11){
+      Hanoi(num,'A','B','C');
+      printf("\nSolution for %d rings complete\n",num);
+      exit(0);
+    }else{
+      printf("Input not in range");
+      exit(0);
+    }
+  }else{
+    printf("Number of inputs not valid");
+    exit(1);
+  }
+}
+
+void Hanoi(int n, char src, char dest, char aux){
+  if(n == 1){
+    printf("Move ring 1 from peg %c to peg %c\n",src,dest);
+    return;
+  }else{
+    Hanoi(n-1,src,aux,dest);
+    printf("Move ring %d from peg %c to peg %c\n",n,src,dest);
+    Hanoi(n-1,aux,dest,src);
+  }
+}
