@@ -113,20 +113,7 @@ int main() {
   double D_avg;
 
   srand(time(NULL));
-  fp = fopen("GG1.txt","w+");
-  for(lambda=0.01;lambda<0.50;lambda+=0.01){
-    for(i=0;i<T;i++){
-      if(uniform_rv(0,1)<lambda){ //Geo arrival rate
-        //addFront();
-      }
-      S = (uniform_rv(0,1)<mu);
-
-    }
-    D_avg /= (double)T;
-    fprintf(fp,"%.3f, %.3f\n",lambda, D_avg);
-  }
-  fclose(fp);
-
+  
   //Create the Empty List
   head = (DNode*)malloc(sizeof(DNode));
   tail = (DNode*)malloc(sizeof(DNode));
@@ -135,14 +122,22 @@ int main() {
   tail->prev = head;
   tail->next = NULL;
 
-  addBack(2.0,1);
-  addBack(3.0,1);
-  addFront(4.0,2);
-  printf("%d\n",empty()); //empty check
+  fp = fopen("MeanDelaySim.txt","w+");
+  for(lambda=0.01;lambda<0.50;lambda+=0.01){
+    for(i=0;i<T;i++){
+      if(uniform_rv(0,1)<lambda){ //Geo arrival rate
+        addFront(i,1);
+      }
+      S = (uniform_rv(0,1)<mu);
+      
+    }
+    D_avg /= (double)T;
+    fprintf(fp,"%.3f, %.3f\n",lambda, D_avg);
+  }
+  fclose(fp);
 
-  Print();
-  ReversePrint();
-  //InsertAtTail(4.1,3,1); Print(); ReversePrint();
-  //AddPkt(6,2,1); /Print(); ReversePrint();
-  //InsertAtTail(8.2,3,1); Print(); ReversePrint();
+  
+
+
+
 }
